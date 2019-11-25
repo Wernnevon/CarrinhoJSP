@@ -1,0 +1,7 @@
+﻿INSERT INTO produto (id, nome, preco) VALUES (1, 'Power Bank', 50.00)
+INSERT INTO produto (id, nome, preco) VALUES (2, 'Watch Band', 119.99)
+INSERT INTO produto (id, nome, preco) VALUES (3, 'Earphone', 135.54)
+INSERT INTO produto (id, nome, preco) VALUES (4, 'HX mouse', 187.79)
+INSERT INTO produto (id, nome, preco) VALUES (5, 'HX Phone', 369.99)
+INSERT INTO produto (id, nome, preco) VALUES (6, 'Teclado Predator', 382.39)
+INSERT INTO produto (id, nome, preco) VALUES (7, 'SSD Kingstom', 309.60)
