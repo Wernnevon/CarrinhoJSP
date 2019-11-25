@@ -10,14 +10,24 @@
 <body>
 <h1>Lista de produtos</h1>
 <table>
-
+	<tr>
+		<th>ID</th>
+		<th>Nome</th>
+		<th>Preço</th>
+		<th>Ação</th>
+	</tr>
+	<c:forEach items="${produtos}" var="produto">
 		<tr>
+			<td>${produto.id}</td>
+			<td>${produto.nome}</td>
+			<td>${produto.preco}</td>
 			<td>
-				<form>
-					<a href="produtos">Produtos</a>
+				<form method="post" action="adicionarCarrinho?id=${produto.id}">
+					<button>Adicionar</button>
 				</form>
 			</td>
 		</tr>
+	</c:forEach>
 </table>
 
 </body>

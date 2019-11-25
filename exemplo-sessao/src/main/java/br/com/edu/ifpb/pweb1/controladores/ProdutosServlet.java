@@ -1,6 +1,7 @@
 package br.com.edu.ifpb.pweb1.controladores;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -18,14 +19,14 @@ public class ProdutosServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		ProdutosDAO produtosDAO = new ProdutosDAO();
-		List<Produto> produtos = null;
+		List<Produto> produtos = new ArrayList<Produto>();
 		try {
 			produtos = produtosDAO.listarProdutos();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		req.setAttribute("produtos", produtos);
-		req.getRequestDispatcher("index.jsp").forward(req, resp);
+		req.getRequestDispatcher("produtos.jsp").forward(req, resp);
 	}
 	
 }

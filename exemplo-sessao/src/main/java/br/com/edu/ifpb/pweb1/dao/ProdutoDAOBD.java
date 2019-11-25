@@ -9,16 +9,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProdutoDAOBD {
-    public Connection getConnection() {
+    public Connection getConnectinon() throws ClassNotFoundException {
+        Class.forName ("org.postgresql.Driver");
         try {
-            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/ExercicoRedis", "postgres", "postgres");
+
+            return DriverManager.getConnection( "jdbc:postgresql://localhost:5432/ExercicoRedis", "postgres", "postgres");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
-    public void escrevendo (Produto produto) throws SQLException {
+    public void escrevendo (Produto produto) throws SQLException, ClassNotFoundException {
+        Connection conexao = new ProdutoDAOBD().getConnectinon();
         String query = "INSERT INTO produto (id, nome, preco) VALUES (?, ?, ?)";
-        Connection conexao = new ProdutoDAOBD().getConnection();
         PreparedStatement statement = conexao.prepareStatement(query);
         statement.setLong(1, produto.getId());
         statement.setString(2, produto.getNome());
@@ -30,10 +32,10 @@ public class ProdutoDAOBD {
 
         conexao.close();
     }
-    public Produto buscarProduto (Long id) throws SQLException, ParseException {
+    public Produto buscarProduto (Long id) throws SQLException, ParseException, ClassNotFoundException {
+        Connection conexao = new ProdutoDAOBD().getConnectinon();
         Produto produto = new Produto();
         String sql = "SELECT * FROM livro WHERE id = ?";
-        Connection conexao = new ProdutoDAOBD().getConnection();
         PreparedStatement stmt = conexao.prepareStatement(sql);
         stmt.setLong(1, id);
         ResultSet rs = stmt.executeQuery();
@@ -48,8 +50,8 @@ public class ProdutoDAOBD {
     }
 
     public List<Produto> listarProdutos() throws Exception {
-        String sql = "SELECT * FROM livro";
-        Connection conexao = new ProdutoDAOBD().getConnection();
+        Connection conexao = new ProdutoDAOBD().getConnectinon();
+        String sql = "SELECT * FROM produto ";
         PreparedStatement stmt = conexao.prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
         List<Produto> produtos= new ArrayList<>();
