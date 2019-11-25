@@ -35,7 +35,9 @@ public class AdicionarCarrinhoServlet extends HttpServlet {
 		CarrinhoRedis cart = new CarrinhoRedis();
 		cart.salvar(produtosCarrinho, req.getSession().getId());
 		req.getSession().setAttribute("produtosCarrinho", cart.buscar(req.getSession().getId()));
+		resp.sendRedirect("produtos");
+	}
+	public void doGet (HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		resp.sendRedirect("carrinho.jsp");
 	}
-	
 }

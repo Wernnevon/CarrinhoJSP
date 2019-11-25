@@ -11,16 +11,16 @@
 <h1>Lista de produtos</h1>
 <table>
 	<tr>
-		<th>ID</th>
-		<th>Nome</th>
-		<th>Preço</th>
-		<th>Ação</th>
+		<th style="padding:1%">ID</th>
+		<th style="padding:1%">Nome</th>
+		<th style="padding:1%">Preço</th>
+		<th style="padding:1%">Ação</th>
 	</tr>
 	<c:forEach items="${produtos}" var="produto">
 		<tr>
-			<td>${produto.id}</td>
-			<td>${produto.nome}</td>
-			<td>${produto.preco}</td>
+			<td style="padding:1%">${produto.id}</td>
+			<td style="padding:1%">${produto.nome}</td>
+			<td style="padding:1%">${produto.preco}</td>
 			<td>
 				<form method="post" action="adicionarCarrinho?id=${produto.id}">
 					<button>Adicionar</button>
@@ -29,6 +29,6 @@
 		</tr>
 	</c:forEach>
 </table>
-
+<form method="get" action="adicionarCarrinho"><a href="adicionarCarrinho">Carrinho</a></form>
 </body>
 </html>

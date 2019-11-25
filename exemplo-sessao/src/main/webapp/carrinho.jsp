@@ -40,6 +40,6 @@ background: #888;
 		</tr>
 	</c:forEach>
 </table>
-
+<a href="produtos">Voltar</a>
 </body>
 </html>
