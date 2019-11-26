@@ -33,7 +33,7 @@ public class RemoverCarrinhoServlet extends HttpServlet {
 			produtosCarrinho.remove(produto);
 			carrinhoRedis.salvar(produtosCarrinho, req.getSession().getId());
 			req.getSession().setAttribute("produtosCarrinho", carrinhoRedis.buscar(req.getSession().getId()));
-			resp.sendRedirect("carrinho.jsp");
+			resp.sendRedirect("produtos");
 		}
 	}
 	
