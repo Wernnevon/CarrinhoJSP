@@ -35,7 +35,7 @@ public class ProdutoDAOBD {
     public Produto buscarProduto (Long id) throws SQLException, ParseException, ClassNotFoundException {
         Connection conexao = new ProdutoDAOBD().getConnectinon();
         Produto produto = new Produto();
-        String sql = "SELECT * FROM livro WHERE id = ?";
+        String sql = "SELECT * FROM produto WHERE id = ?";
         PreparedStatement stmt = conexao.prepareStatement(sql);
         stmt.setLong(1, id);
         ResultSet rs = stmt.executeQuery();
