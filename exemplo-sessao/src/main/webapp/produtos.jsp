@@ -37,13 +37,16 @@
 				<td>${produto.preco}</td>
 				<td>
 					<form method="post" action="removerCarrinho?id=${produto.id}">
-						<button type="submit" class="btn-floating indigo darken-4"><i class="material-icons">delete</i></button>
+						<button type="submit" class="btn-flat waves-effect"><i class="material-icons">delete</i></button>
 					</form>
 
 				</td>
 			</tr>
 		</c:forEach>
 		</table>
+		<form method="post" action="pedido">
+			<button type="submit" class="btn waves-effect indigo darken-4">Finalizar</button>
+		</form>
 	</div>
 	<br><br><br>
 	<div class="container">
