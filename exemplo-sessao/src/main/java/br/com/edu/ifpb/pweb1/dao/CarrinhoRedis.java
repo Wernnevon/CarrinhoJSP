@@ -7,6 +7,7 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.params.SetParams;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CarrinhoRedis {
@@ -27,5 +28,13 @@ public class CarrinhoRedis {
         CarrinhoRedis cart = new CarrinhoRedis();
         cart.salvar(cart.buscar(id), id);
         return true;
+    }
+    public List<Produto> limpar (String id){
+        List<Produto> produtoList = buscar(id);
+        produtoList.clear();
+//        for (int i = 0; i<=produtoList.size(); i++){
+//            produtoList.remove(i);
+//        }
+        return produtoList;
     }
 }

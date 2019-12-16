@@ -37,7 +37,7 @@
 				<td>${produto.preco}</td>
 				<td>
 					<form method="post" action="removerCarrinho?id=${produto.id}">
-						<button type="submit" class="btn-flat waves-effect"><i class="material-icons">delete</i></button>
+						<button type="submit" class="btn-flat btn-large"><i class="material-icons">remove_shopping_cart</i></button>
 					</form>
 
 				</td>
@@ -62,7 +62,7 @@
 					<td style="padding:1%">${produto.preco}</td>
 					<td>
 						<form method="post" action="adicionarCarrinho?id=${produto.id}">
-							<button class="btn-floating indigo darken-4"><i class="material-icons">add</i></button>
+							<button class="btn-flat btn-large"><i class="material-icons">add_shopping_cart</i></button>
 						</form>
 					</td>
 				</tr>
